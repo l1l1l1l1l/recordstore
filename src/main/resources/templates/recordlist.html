@@ -22,9 +22,13 @@
 			</form>
 		</div>
 		
-		<a class="btn btn-success" href="/search">Search records</a>
-
-			
+		<form th:action="@{/recordlist}" method="get">
+   		 	 Search: <input type="text" name="keyword" id="txtSearch"/>
+   			 &nbsp;
+   			 <input type="submit" value="Search" />
+   			 &nbsp;
+		</form>
+		<br>
 		<table class="table table-striped">
 			<tr>
 				<th>Artist</th>

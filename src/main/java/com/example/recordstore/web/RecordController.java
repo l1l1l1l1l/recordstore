@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.example.recordstore.model.GenreRepository;
 import com.example.recordstore.model.Record;
 import com.example.recordstore.model.RecordRepository;
+import com.example.recordstore.services.RecordService;
 
 @Controller
 public class RecordController {
@@ -29,13 +30,13 @@ public class RecordController {
 	@Autowired
 	private RecordService service;
 
-	@RequestMapping(value = "/search")
-	public String search(Model model, @Param("title") String title) {
+	/*@RequestMapping(value = "/")
+	public String homepage(Model model, @Param("title") String title) {
 		List<Record> listRecords = service.listAll(title);
 		model.addAttribute("listRecords", listRecords);
 		model.addAttribute("title", title);
-		return "search";
-	}
+		return "index";
+	} */
 
 	@RequestMapping(value = "/login")
 	public String login() {
@@ -55,8 +56,14 @@ public class RecordController {
 	}
 
 	@RequestMapping(value = { "/", "/recordlist" })
-	public String recordList(Model model) {
-		model.addAttribute("records", repository.findAll());
+	public String recordList(Model model, String keyword) {
+		
+		if(keyword != null) {
+			model.addAttribute("records", service.findByKeyword(keyword));
+		} else {
+			model.addAttribute("records", service.getRecords());		
+		}
+		
 		return "recordlist";
 	}
 

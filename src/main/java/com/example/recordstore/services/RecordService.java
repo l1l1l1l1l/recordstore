@@ -1,4 +1,4 @@
-package com.example.recordstore.web;
+package com.example.recordstore.services;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,12 @@ public class RecordService {
     @Autowired
     private RecordRepository repo;
      
-    public List<Record> listAll(String title) {
-        if (title != null) {
-            return repo.findByTitle(title);
-        }
-        return repo.findAll();
+    public List<Record> findByKeyword(String keyword) {
+    	return repo.findByKeyword(keyword);
+    }
+    
+    public List<Record> getRecords(){
+    	return repo.findAll();
     }
      
 }
