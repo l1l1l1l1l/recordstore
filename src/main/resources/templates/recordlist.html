@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Recordlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+    th:href="@{css/bootstrap.min.css}">
+</head>
+
+
+<body>
+	<div class="container">
+		<h1 class ="text-center">Records 🎵</h1>
+		
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>		
+		
+		<div class="col-md-4" style="padding:20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+			</form>
+		</div>
+		
+		<a class="btn btn-success" href="/search">Search records</a>
+
+			
+		<table class="table table-striped">
+			<tr>
+				<th>Artist</th>
+				<th>Title</th>
+				<th>Condition</th>
+				<th>Year</th>
+				<th>Price</th>
+				<th>Genre</th>
+				<th></th>
+				<th></th>
+			</tr>
+
+
+			<tr th:each="record : ${records}">
+				<td th:text="${record.artist}"></td>
+				<td th:text="${record.title}"></td>
+				<td th:text="${record.condition}"></td>
+				<td th:text="${record.year}"></td>
+				<td th:text="${record.price} + €"></td>
+    			<td th:text="${record.genre.name}"></td>
+    			
+ 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${record.id})}" class="btn btn-xs btn-danger">Delete</a></td>
+ 				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${record.id})}" class="btn btn-primary">Edit</a></td>    	
+    		</tr>
+		</table>
+
+		<a class="btn btn-success" href="/add">Add Record</a>
+
+	</div>
+</body>
+</html>

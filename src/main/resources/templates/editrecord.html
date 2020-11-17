@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Recordlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+     th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+    <h1>Edit record</h1>
+
+    <div>
+        <form th:object="${record}" th:action="@{../save}" action="#" method="post">
+            <input type="hidden" id="id" th:field="*{id}"/>
+            Title:<input type="text" id="title" th:field="*{title}" /> <br>
+            Author:<input type="text" id="artist" th:field="*{artist}" /> <br>
+            Year:<input type="text" id="year" th:field="*{year}" /> <br>
+            ISBN:<input type="text" id="condition" th:field="*{condition}" /> <br>
+            Price:<input type="text" id="price" th:field="*{price}" /> <br>
+			Genre:<select id="genrelist" th:field="*{genre}" class="form-control">
+       			<option th:each="genre: ${genres}" th:value="${genre.genreid}" th:text="${genre.name}"></option>
+    		</select>
+
+            <input type="submit" value="Save"></input>
+        </form>
+    </div>
+</body>
+</html>
