@@ -1,43 +1,45 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Recordlist</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
-     th:href="@{css/bootstrap.min.css}">
+<title>Recordlist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}">
 </head>
 <body>
-	<h1>Add record</h1>
-	<div>
-		<form th:object="${record}" th:action="@{save}" action="#" method="post">
-		  	<label for="title">Title</label>
-			<input type="text" id="title" th:field="*{title}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
-			
-		  	<label for="artist">Artist</label>
-			<input type="text" id="artist" th:field="*{artist}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
-			
-		  	<label for="year">Year</label>
-			<input type="text" id="year" th:field="*{year}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
-			
-			<label for="condition">Condition</label>
-			<input type="text" id="condition" th:field="*{condition}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
-			
-			<label for="price">Price</label>
-			<input type="text" id="price" th:field="*{price}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
-
-		  	<label for="genrelist">Genre</label>
-				<select id="genrelist" th:field="*{genre}" class="form-control">
-       				<option th:each="genre: ${genres}" th:value="${genre.genreid}" th:text="${genre.name}"></option>
-    			</select>
-    		<div style="clear: both; display: block; height: 10px;"></div>
-			
-			<input type="submit" value="Save"></input>
-		</form>
+	<div class="container">
+		<h2 class="text-center">Add Record</h2>
+		<div>
+			<form th:object="${record}" th:action="@{save}" action="#" method="post">
+				<div class="form-group">
+					<label for="artist">Artist</label> 
+					<input class="form-control" type="text" id="artist" th:field="*{artist}" /> 
+				</div>
+				<div class="form-group">
+					<label for="title">Title</label> 
+					<input class="form-control" type="text" id="title" th:field="*{title}" /> 
+				</div>
+				<div class="form-group">
+					<label for="condition">Condition</label>
+					<input class="form-control" type="text" id="condition" th:field="*{condition}" /> 
+				</div>
+				<div class="form-group">
+					<label for="year">Year</label> 
+					<input class="form-control" type="text" id="year" th:field="*{year}" /> 
+				</div>
+				<div class="form-group">
+					<label for="price">Price</label> 
+					<input class="form-control" type="text" id="price" th:field="*{price}" /> 
+				</div>
+				<div class="form-group">
+    				<label for="genre">Genre</label>
+    				<select class="form-control" id="genre" th:field="*{genre}">
+    					<option th:each="genre: ${genres}" th:value="${genre.genreid}" th:text="${genre.name}"></option>
+    				</select>
+  				</div>
+				<input class="btn btn-success" type="submit" value="Save" />
+			</form>
+		</div>
 	</div>
 </body>
 </html>

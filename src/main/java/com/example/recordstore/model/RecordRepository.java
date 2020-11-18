@@ -8,7 +8,8 @@ import org.springframework.data.repository.query.Param;
 
 public interface RecordRepository extends JpaRepository<Record, Long> {
 	
-	@Query(value = "SELECT * FROM Record r WHERE r.title LIKE %:keyword% or r.artist LIKE %:keyword%", nativeQuery=true)
+	// Sql query to search records by title or artist
+	@Query(value = "SELECT * FROM Record r WHERE r.title ILIKE %:keyword% or r.artist ILIKE %:keyword%" , nativeQuery=true)
     List<Record>findByKeyword(@Param("keyword") String keyword);
     
 }

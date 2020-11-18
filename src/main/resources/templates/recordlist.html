@@ -11,6 +11,7 @@
 
 
 <body>
+<br>
 	<div class="container">
 		<h1 class ="text-center">Records 🎵</h1>
 		
@@ -19,7 +20,7 @@
 		<div class="col-md-4" style="padding:20px 0">
 			<form th:action="@{/logout}" method="post">
 				<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
-			</form>
+			</form>			
 		</div>
 		
 		<form th:action="@{/recordlist}" method="get">
@@ -29,8 +30,10 @@
    			 &nbsp;
 		</form>
 		<br>
+		
 		<table class="table table-striped">
 			<tr>
+				<th></th>
 				<th>Artist</th>
 				<th>Title</th>
 				<th>Condition</th>
@@ -40,7 +43,6 @@
 				<th></th>
 				<th></th>
 			</tr>
-
 
 			<tr th:each="record : ${records}">
 				<td th:text="${record.artist}"></td>

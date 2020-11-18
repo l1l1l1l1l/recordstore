@@ -38,6 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .permitAll();
     }
     
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(
+                "/img/")
+                .addResourceLocations(
+                        "classpath:/static/img/");
+    }
+    
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,14 +29,6 @@ public class RecordController {
 	@Autowired
 	private RecordService service;
 
-	/*@RequestMapping(value = "/")
-	public String homepage(Model model, @Param("title") String title) {
-		List<Record> listRecords = service.listAll(title);
-		model.addAttribute("listRecords", listRecords);
-		model.addAttribute("title", title);
-		return "index";
-	} */
-
 	@RequestMapping(value = "/login")
 	public String login() {
 		return "login";
@@ -46,7 +37,7 @@ public class RecordController {
 	// RESTful service to get all records
 	@GetMapping(value = "/records")
 	public @ResponseBody List<Record> recordListRest() {
-		return (List<Record>) repository.findAll();
+		return (List<Record>) service.getRecords();
 	}
 
 	// RESTful service to get record by id
