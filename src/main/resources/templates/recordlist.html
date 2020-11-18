@@ -43,8 +43,11 @@
 				<th></th>
 				<th></th>
 			</tr>
+			
 
 			<tr th:each="record : ${records}">
+			<td><img src="../static/img/a.png" width="100" th:src="@{img/a.png}"/></td>
+			
 				<td th:text="${record.artist}"></td>
 				<td th:text="${record.title}"></td>
 				<td th:text="${record.condition}"></td>
@@ -55,8 +58,9 @@
  				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${record.id})}" class="btn btn-xs btn-danger">Delete</a></td>
  				<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${record.id})}" class="btn btn-primary">Edit</a></td>    	
     		</tr>
+    		
 		</table>
-
+		
 		<a class="btn btn-success" href="/add">Add Record</a>
 
 	</div>
