@@ -57,11 +57,11 @@ public class RecordStoreApplication {
 			repository.save(new Record("Heliocentric Worlds Of Sun Ra Vol.1", "Sun Ra", 2020, "Good", 7.99, grepository.findByName("Jazz").get(0)));
 			repository.save(new Record("Swirling", "Sun Ra", 2844, "Good", 11.99, grepository.findByName("Jazz").get(0)));
 			repository.save(new Record("A Fireside Chat With Lucifer", "Sun Ra", 2006, "Good", 20.99, grepository.findByName("Jazz").get(0)));
-			repository.save(new Record("Random Acces Memories", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
-			repository.save(new Record("Alive", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
-			repository.save(new Record("Daft Club", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
-			repository.save(new Record("Toy", "Yello", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
-			repository.save(new Record("Toych yllo", "Yello", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
+			repository.save(new Record("Random Acces Memories", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electronic").get(0)));
+			repository.save(new Record("Alive", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electronic").get(0)));
+			repository.save(new Record("Daft Club", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electronic").get(0)));
+			repository.save(new Record("Toy", "Yello", 2844, "Good", 11.99, grepository.findByName("Electronic").get(0)));
+			repository.save(new Record("Toych yllo", "Yello", 2844, "Good", 11.99, grepository.findByName("Electronic").get(0)));
 
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "jorma@gmail.com", "USER");
