@@ -32,16 +32,36 @@ public class RecordStoreApplication {
 			grepository.save(new Genre("Rock"));
 			grepository.save(new Genre("Metal"));
 			grepository.save(new Genre("Indie"));
+			grepository.save(new Genre("Funk"));
+			grepository.save(new Genre("Reggae"));
+			grepository.save(new Genre("Electronic"));
+			grepository.save(new Genre("Blues"));
 			grepository.save(new Genre("Jazz"));
 			
-			repository.save(new Record("Kind of blue", "Daves Miles", 1929, "Good", 15, grepository.findByName("Rock").get(0)));
-			repository.save(new Record("jee", "joonas", 1945, "Good", 18.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("joo", "asdasd", 2415, "Good", 21.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("omena", "Sun Ra", 1234, "Good", 39.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("donitsi", "Sun Ra", 3516, "Good", 59.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("päärynä", "Sun Ra", 1269, "Good", 10.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("jeejee", "Sun Ra", 2844, "Good", 7.99, grepository.findByName("Metal").get(0)));
-			repository.save(new Record("A Fireside Chat With Lucifer", "Sun Ra", 1945, "Good", 20.99, grepository.findByName("Metal").get(0)));
+			repository.save(new Record("Kind of blue", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("In a silent way", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("Four classic albums", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("S&M2", "Metallica", 1945, "Good", 18.99, grepository.findByName("Metal").get(0)));
+			repository.save(new Record("Master of puppets", "Metallica", 2007, "Good", 10.99, grepository.findByName("Metal").get(0)));
+			repository.save(new Record("Decades", "Nightwish", 2415, "Good", 21.99, grepository.findByName("Metal").get(0)));
+			repository.save(new Record("The repentless killogy", "Slayer", 2003, "Good", 19.99, grepository.findByName("Metal").get(0)));
+			repository.save(new Record("Slow Rush", "Tame Impala", 1999, "Good", 10.99, grepository.findByName("Indie").get(0)));
+			repository.save(new Record("Digital Shades", "M83", 1970, "Good", 7.99, grepository.findByName("Indie").get(0)));
+			repository.save(new Record("Cease to Begin", "Band of horses", 2010, "Good", 7.99, grepository.findByName("Indie").get(0)));
+			repository.save(new Record("Greatest hits I", "Queen", 2005, "Good", 15.99, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("Greatest hits II", "Queen", 2008, "Good", 15.99, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("Boom Chicka Boom", "Johnny Cash", 1950, "Good", 7.99, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("Abbey Road", "Beatles", 1960, "Good", 22, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("White album", "Beatles", 1978, "Good", 22, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("Nashville Skyline", "Bob Dylan", 1989, "Good", 26, grepository.findByName("Rock").get(0)));
+			repository.save(new Record("Heliocentric Worlds Of Sun Ra Vol.1", "Sun Ra", 2020, "Good", 7.99, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("Swirling", "Sun Ra", 2844, "Good", 11.99, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("A Fireside Chat With Lucifer", "Sun Ra", 2006, "Good", 20.99, grepository.findByName("Jazz").get(0)));
+			repository.save(new Record("Random Acces Memories", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
+			repository.save(new Record("Alive", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
+			repository.save(new Record("Daft Club", "Daft Punk", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
+			repository.save(new Record("Toy", "Yello", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
+			repository.save(new Record("Toych yllo", "Yello", 2844, "Good", 11.99, grepository.findByName("Electro").get(0)));
 
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "jorma@gmail.com", "USER");
