@@ -45,7 +45,8 @@ public class RecordController {
 	public @ResponseBody Optional<Record> findRecordRest(@PathVariable("id") Long id) {
 		return repository.findById(id);
 	}
-
+	
+	// Shows all records in database and records searched by user
 	@RequestMapping(value = { "/", "/recordlist" })
 	public String recordList(Model model, String keyword) {
 		
@@ -57,26 +58,30 @@ public class RecordController {
 		
 		return "recordlist";
 	}
-
+	
+	// Adds a new record
 	@RequestMapping(value = "/add")
 	public String addRecord(Model model) {
 		model.addAttribute("record", new Record());
 		model.addAttribute("genres", grepository.findAll());
 		return "addrecord";
 	}
-
+	
+	// Saves a new or edited record and redirects to main page
 	@PostMapping(value = "/save")
 	public String save(Record record) {
 		repository.save(record);
 		return "redirect:recordlist";
 	}
-
+	
+	// Delete a record. Only accessible to admin
 	@GetMapping(value = "/delete/{id}")
 	public String deleteRecord(@PathVariable("id") Long recordId, Model model) {
 		repository.deleteById(recordId);
 		return "redirect:../recordlist";
 	}
-
+	
+	// Edit record. Only accessible to admin
 	@GetMapping(value = "/edit/{id}")
 	public String addRecord(@PathVariable("id") Long recordId, Model model) {
 		model.addAttribute("record", repository.findById(recordId));

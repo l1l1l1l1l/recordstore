@@ -38,6 +38,7 @@ public class RecordStoreApplication {
 			grepository.save(new Genre("Blues"));
 			grepository.save(new Genre("Jazz"));
 			
+			// Create records
 			repository.save(new Record("Kind of blue", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
 			repository.save(new Record("In a silent way", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
 			repository.save(new Record("Four classic albums", "Daves Miles", 1929, "Good", 15, grepository.findByName("Jazz").get(0)));
